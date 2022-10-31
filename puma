@@ -10,9 +10,10 @@ name="puma"
 rcvar="${name}_enable"
 procname="ruby"
 
-extra_commands="upgrade show reopenlogs"
+extra_commands="reload upgrade show reopenlogs"
 start_cmd="puma_start_command"
 upgrade_cmd="puma_upgrade_command"
+reload_cmd="puma_reload_command"
 show_cmd="puma_show_command"
 reopenlogs_cmd="puma_reopenlogs_command"
 
@@ -222,6 +223,23 @@ puma_start_command()
   fi
 
   return 0
+}
+
+puma_reload_command()
+{
+  if [ -n "${rc_pid}" ]; then
+    # Tell the master to spawn a new version of itself
+    if kill -USR2 "${rc_pid}"; then
+      # jsust send the signal
+
+      # everything worked, return success
+      return 0
+    fi
+  fi
+
+  # If there isn't a pid in rc_pid, just run the start command
+  echo >&2 "Couldn't reload, running `start` instead"
+  $0 start "${2}"
 }
 
 puma_upgrade_command()
