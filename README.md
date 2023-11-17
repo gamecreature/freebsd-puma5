@@ -1,11 +1,11 @@
 # freebsd-puma 5, 6
 
-An init script for running puma5 on FreeBSD. Based on [freebsd-sidekiq].
+An init script for running puma on FreeBSD. Based on [freebsd-sidekiq].
 
-This rc script works with either RVM and RBENV installed in your deploy user's directory, or with a globally installed ruby.
+This rc script works with either RVM or RBENV installed in your deploy user's directory, or with a globally installed ruby.
 
-This script runs puma5 via the Freebsd daemon tool.
-So it should be compatible with the latest puma5 version, which dropped internal daemonizing support (https://github.com/puma/puma/blob/master/5.0-Upgrade.md)
+This script runs puma via the Freebsd daemon tool.
+So it should be compatible with the latest puma version, which dropped internal daemonizing support (https://github.com/puma/puma/blob/master/5.0-Upgrade.md)
 
 Simply place the `puma` script in your `/usr/local/etc/rc.d` directory, modify it if necessary, and configure your application via variables in `/etc/rc.conf`
 This has been tested on **FreeBSD 12.1** and **FreeBSD 13.2**
@@ -78,7 +78,7 @@ The rc script does as much as possible to help you out. If you are using Capistr
 This infers all sorts of information about your app (you can always run `/usr/local/etc/rc.d/puma show` to see what your configuration is. **Note** the variable names listed here are without the leading `puma_` prefix that you would need to specify in `/etc/rc.conf`):
 
 #
-# puma5 Configuration 
+# puma Configuration 
 #
 
     command:        /u/app/current/bin/puma
