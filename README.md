@@ -8,7 +8,7 @@ This script runs puma5 via the Freebsd daemon tool.
 So it should be compatible with the latest puma5 version, which dropped internal daemonizing support (https://github.com/puma/puma/blob/master/5.0-Upgrade.md)
 
 Simply place the `puma` script in your `/usr/local/etc/rc.d` directory, modify it if necessary, and configure your application via variables in `/etc/rc.conf`
-This has been tested on **FreeBSD 12.1**
+This has been tested on **FreeBSD 12.1** and **FreeBSD 13.2**
 
 ## Make sure puma starts after your database launches!
 
