@@ -1,4 +1,4 @@
-# freebsd-puma5
+# freebsd-puma 5, 6
 
 An init script for running puma5 on FreeBSD. Based on [freebsd-sidekiq].
 
