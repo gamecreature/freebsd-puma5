@@ -1,5 +1,9 @@
 # freebsd-puma 
 
+>[!WARNING]  
+>ARCHIVED: Please use <https://github.com/gamecreature/freebsd-puma>.
+
+
 An init script for running puma on FreeBSD. Based on [freebsd-sidekiq].
 
 This rc script works with either RVM or RBENV installed in your deploy user's directory, or with a globally installed ruby.
