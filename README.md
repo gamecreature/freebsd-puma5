@@ -78,7 +78,7 @@ The rc script does as much as possible to help you out. If you are using Capistr
 This infers all sorts of information about your app (you can always run `/usr/local/etc/rc.d/puma show` to see what your configuration is. **Note** the variable names listed here are without the leading `puma_` prefix that you would need to specify in `/etc/rc.conf`):
 
 #
-# puma5 Configuration for eo_staging
+# puma5 Configuration 
 #
 
     command:        /u/app/current/bin/puma
@@ -99,7 +99,7 @@ This infers all sorts of information about your app (you can always run `/usr/lo
 
     start_command:
 
-    su -l eo_staging -c "export BUNDLE_GEMFILE=/u/app/current/Gemfile && . /u/app/current/.env && cd /u/app/current && /usr/sbin/daemon -f -p /u/app/shared/tmp/pids/puma.pid -o /u/app/current/log/puma.log /u/app/current/bin/puma -e production -C /u/app/current/config/puma.rb  /u/app/current/config.ru "
+    su -l username -c "export BUNDLE_GEMFILE=/u/app/current/Gemfile && . /u/app/current/.env && cd /u/app/current && /usr/sbin/daemon -f -p /u/app/shared/tmp/pids/puma.pid -o /u/app/current/log/puma.log /u/app/current/bin/puma -e production -C /u/app/current/config/puma.rb  /u/app/current/config.ru "
 
 
 Let's look at these settings one by one:
@@ -178,7 +178,6 @@ You can use the simplified Capistrano `directory`-based configuration like above
 If you want to customize the default, calculated values you want to look in the `_setup_directory()` function. This is what is called when you specify that you want to use a Capistrano-like directory layout by specifying `puma_directory` or `puma5_<application-name>_directory` in your `/etc/rc.conf`.
 
 If you use a different deployment strategy than Capistrano, you could adjust the default values to work with your system.
-
 
 
 [freebsd-puma5]: https://github.com/snake66/freebsd-puma5
